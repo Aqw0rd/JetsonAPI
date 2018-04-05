@@ -109,5 +109,25 @@ namespace JetsonAPI.Controllers
                 return NotFound();
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                cmd = new SqlCommand(
+                    "delete from Boat " +
+                    "where BoatID=" + id, jetsondb
+                    );
+                cmd.ExecuteNonQuery();
+                jetsondb.Close();
+                return Ok();
+            }
+            catch
+            {
+                jetsondb.Close();
+                return NotFound();
+            }
+        }
     }
 }
