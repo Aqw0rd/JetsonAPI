@@ -42,7 +42,9 @@ namespace JetsonAPI.Controllers
                     Boat b = new Boat(
                         reader.GetInt32(0),
                         reader.GetInt32(1),
-                        reader.GetString(2)
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4)
                     );
                     boats.Add(b);
                 }
@@ -71,7 +73,9 @@ namespace JetsonAPI.Controllers
                     boat = new Boat(
                         reader.GetInt32(0),
                         reader.GetInt32(1),
-                        reader.GetString(2)
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4)
                     );
                 }
                 reader.Close();
@@ -92,11 +96,15 @@ namespace JetsonAPI.Controllers
             {
                 string name = boat.BoatName;
                 int nr = boat.BoatNumber;
+                string skipperOne = boat.BoatSkipperOne;
+                string skipperTwo = boat.BoatSkipperTwo;
                 cmd = new SqlCommand(
                     "insert into Boat values " +
                     "(" +
                     "'" + nr + "'," +
-                    "'" + name + "');"
+                    "'" + name + "'," +
+                    "'" + skipperOne + "'," +
+                    "'" + skipperTwo + "');"
                     , jetsondb);
 
                 cmd.ExecuteNonQuery();
