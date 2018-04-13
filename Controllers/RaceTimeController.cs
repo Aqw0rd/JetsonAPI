@@ -56,7 +56,8 @@ namespace JetsonAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public List<RaceTime> Get(int id)
+        [ActionName("GetByRaceId")]
+        public List<RaceTime> GetByRaceId(int id)
         {
             List<RaceTime> racetimes = new List<RaceTime>();
 
@@ -85,8 +86,9 @@ namespace JetsonAPI.Controllers
             return racetimes;
         }
 
-        /*[HttpGet("/{boatNumber}")]
-        public List<RaceTime> Get( boatNumber)
+        [HttpGet("{boatNumber}")]
+        [ActionName("GetByBoatnumber")]
+        public List<RaceTime> GetByBoatnumber(int boatNumber)
         {
             List<RaceTime> racetimes = new List<RaceTime>();
 
@@ -113,7 +115,7 @@ namespace JetsonAPI.Controllers
             jetsondb.Close();
 
             return racetimes;
-        }*/
+        }
 
         public IActionResult Index()
         {
