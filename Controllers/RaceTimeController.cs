@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace JetsonAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class RaceTimeController : Controller
     {
         private SqlCommand cmd;
