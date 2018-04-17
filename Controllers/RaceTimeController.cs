@@ -27,6 +27,33 @@ namespace JetsonAPI.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult Post([FromBody]RaceTime racetime)
+        {
+            try
+            {
+                int id = racetime.RaceId;
+                int boatnumb = racetime.BoatNumber;
+                string time = racetime.Time;
+                cmd = new SqlCommand(
+                    "insert into Boat values " +
+                    "(" +
+                    "'" + id + "'," +
+                    "'" + boatnumb + "'," +
+                    "'" + time + "');"
+                    , jetsondb);
+
+                cmd.ExecuteNonQuery();
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                jetsondb.Close();
+                return NotFound();
+            }
+        }
+
         [HttpGet]
         public IEnumerable<RaceTime> Get()
         {
