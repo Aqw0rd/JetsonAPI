@@ -36,7 +36,7 @@ namespace JetsonAPI.Controllers
                 int boatnumb = racetime.BoatNumber;
                 string time = racetime.Time;
                 cmd = new SqlCommand(
-                    "insert into Boat values " +
+                    "insert into RaceTime values " +
                     "(" +
                     "'" + id + "'," +
                     "'" + boatnumb + "'," +
