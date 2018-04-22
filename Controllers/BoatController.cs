@@ -41,7 +41,7 @@ namespace JetsonAPI.Controllers
                 {
                     Boat b = new Boat(
                         reader.GetInt32(0),
-                        reader.GetInt32(1),
+                        reader.GetString(1),
                         reader.GetString(2),
                         reader.GetString(3),
                         reader.GetString(4)
@@ -72,7 +72,7 @@ namespace JetsonAPI.Controllers
                 {
                     boat = new Boat(
                         reader.GetInt32(0),
-                        reader.GetInt32(1),
+                        reader.GetString(1),
                         reader.GetString(2),
                         reader.GetString(3),
                         reader.GetString(4)
@@ -95,7 +95,7 @@ namespace JetsonAPI.Controllers
             try
             {
                 string name = boat.BoatName;
-                int nr = boat.BoatNumber;
+                string nr = boat.BoatNumber;
                 string skipperOne = boat.BoatSkipperOne;
                 string skipperTwo = boat.BoatSkipperTwo;
                 cmd = new SqlCommand(
