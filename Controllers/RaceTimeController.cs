@@ -33,7 +33,7 @@ namespace JetsonAPI.Controllers
             try
             {
                 int id = racetime.RaceId;
-                int boatnumb = racetime.BoatNumber;
+                string boatnumb = racetime.BoatNumber;
                 string time = racetime.Time;
                 cmd = new SqlCommand(
                     "insert into RaceTime values " +
@@ -67,7 +67,7 @@ namespace JetsonAPI.Controllers
                 {
                     RaceTime rt = new RaceTime(
                         reader.GetInt32(0),
-                        reader.GetInt32(1),
+                        reader.GetString(1),
                         reader.GetString(2)
                     );
                     racetimes.Add(rt);
@@ -97,7 +97,7 @@ namespace JetsonAPI.Controllers
                 {
                     RaceTime rt = new RaceTime(
                         reader.GetInt32(0),
-                        reader.GetInt32(1),
+                        reader.GetString(1),
                         reader.GetString(2)
                     );
                     racetimes.Add(rt);
@@ -115,7 +115,7 @@ namespace JetsonAPI.Controllers
 
         [HttpGet("{boatNumber}")]
         [ActionName("GetByBoatnumber")]
-        public List<RaceTime> GetByBoatnumber(int boatNumber)
+        public List<RaceTime> GetByBoatnumber(string boatNumber)
         {
             List<RaceTime> racetimes = new List<RaceTime>();
 

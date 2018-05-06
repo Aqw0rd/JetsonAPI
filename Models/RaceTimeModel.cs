@@ -4,7 +4,7 @@ namespace JetsonAPI.Models
 {
     public class RaceTime{
 
-        public RaceTime(int id, int nr, string time)
+        public RaceTime(int id, string nr, string time)
         {
             this.RaceId = id;
             this.BoatNumber = nr;
@@ -13,7 +13,7 @@ namespace JetsonAPI.Models
 
         public int RaceId { get; set; }
 
-        public int BoatNumber { get; set; }
+        public string BoatNumber { get; set; }
 
         public string Time { get; set; }
     }
