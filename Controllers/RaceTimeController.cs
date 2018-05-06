@@ -128,7 +128,7 @@ namespace JetsonAPI.Controllers
                 {
                     RaceTime rt = new RaceTime(
                         reader.GetInt32(0),
-                        reader.GetInt32(1),
+                        reader.GetString(1),
                         reader.GetString(2)
                     );
                     racetimes.Add(rt);
